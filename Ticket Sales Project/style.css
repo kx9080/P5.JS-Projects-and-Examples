@@ -1,0 +1,11 @@
+html,
+body {
+  /* margin: 3v;
+  padding: 3v; */
+}
+
+canvas {
+  margin: auto;
+  display: flexbox;
+  align-items: center;
+}
