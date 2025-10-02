@@ -19,6 +19,7 @@ let price5 = 59.99;
 let bought5 = 0;
 let totalSales5 = 0;
 let totalRevenue = 0;
+let timer = 0;
 
 function setup() {
   createCanvas(800, 800);
@@ -55,6 +56,11 @@ function draw() {
 
   fill(255);
 
+  if (bought4 < 50 && millis() > timer) {
+    bought4++;
+    timer = millis() + 1000;
+  }
+
   textSize(20);
   text(
     product1 +
@@ -62,7 +68,7 @@ function draw() {
       price1.toFixed(2) +
       " - Bought: " +
       bought1 +
-      " | $" +
+      " | Total: $" +
       totalSales1,
     20,
     80
@@ -73,7 +79,7 @@ function draw() {
       price2.toFixed(2) +
       " - Bought: " +
       bought2 +
-      " | $" +
+      " | Total: $" +
       totalSales2,
     20,
     120
@@ -84,7 +90,7 @@ function draw() {
       price3.toFixed(2) +
       " - Bought: " +
       bought3 +
-      " | $" +
+      " | Total: $" +
       totalSales3,
     20,
     160
@@ -95,7 +101,7 @@ function draw() {
       price4.toFixed(2) +
       " - Bought: " +
       bought4 +
-      " | $" +
+      " | Total: $" +
       totalSales4,
     20,
     200
@@ -106,7 +112,7 @@ function draw() {
       price5.toFixed(2) +
       " - Bought: " +
       bought5 +
-      " | $" +
+      " | Total: $" +
       totalSales5,
     20,
     240
@@ -115,15 +121,12 @@ function draw() {
   textSize(16);
   text("Press keys 1-5 to buy the corresponding game.", 20, 300);
 
-  totalRevenue = (
-    totalSales1 +
-    totalSales2 +
-    totalSales3 +
-    totalSales4 +
-    totalSales5
-  ).toFixed(2);
+  totalRevenue = round(
+    totalSales1 + totalSales2 + totalSales3 + totalSales4 + totalSales5,
+    2
+  );
 
-  textSize(20);
+  textSize(40);
   textStyle(BOLD);
   text("Total Revenue: $" + totalRevenue.toFixed(2), 20, 400);
 }
