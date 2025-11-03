@@ -7,32 +7,37 @@ let squareButton;
 let circleButtonClicked = false;
 let rectButtonClicked = true;
 let size;
+let currentColor;
 
 function setup() {
-  createCanvas(800, 800);
+  const circbtn = document.getElementById("circleButton");
+  const rectbtn = document.getElementById("squareButton");
+  const size = document.getElementById("sizeSlider");
+  const sizeValue = document.getElementById("sizeValue");
+  size.addEventListener("input", function () {
+    sizeValue.textContent = size.value;
+  });
+  sizeValue.textContent = size.value;
+  colorPicker = document.getElementById("colorPicker");
+  circbtn.addEventListener("click", makeitacircle);
+  rectbtn.addEventListener("click", makeitarect);
+  let canvas = createCanvas(800, 600, defaultCanvas0);
   rectMode(CENTER);
   background(220);
-  colorPicker = createColorPicker("#000000");
-  colorPicker.position(10, 10);
-  circleButton = createButton("Circle");
-  circleButton.position(150, 10);
-  squareButton = createButton("Square");
-  squareButton.position(220, 10);
-  size = createSlider(5, 50, 20);
-  size.position(300, 10);
+  // size = createSlider(5, 50, 20);
+  // size.position(300, 10);
+  checkWindowSize();
+}
+
+function checkWindowSize() {
+  if (window.innerWidth < 1000) {
+    alert("Please make your window bigger for an optimal drawing experience!");
+  }
 }
 
 function draw() {
-  circleButton.mousePressed(makeitacircle);
-  squareButton.mousePressed(makeitarect);
   noStroke();
   fill(0);
-  rect(400, 750, 800, 100);
-  fill(255);
-  textSize(16);
-  textAlign(CENTER, CENTER);
-  text("Click and drag to draw. Press 'C' to clear.", 400, 750);
-  text("Press 'S' to save your drawing.", 400, 780);
 }
 
 function makeitacircle() {
@@ -48,12 +53,15 @@ function makeitarect() {
 }
 
 function mouseDragged() {
-  fill(colorPicker.color());
+  console.log(colorPicker.value);
+  const col = colorPicker.value;
+  const brushSize = parseInt(sizeSlider.value);
+  fill(col);
   if (rectButtonClicked === true) {
-    rect(mouseX, mouseY, size.value(), size.value());
+    rect(mouseX, mouseY, brushSize, brushSize);
   }
   if (circleButtonClicked === true) {
-    ellipse(mouseX, mouseY, size.value(), size.value());
+    ellipse(mouseX, mouseY, brushSize, brushSize);
   }
 }
 

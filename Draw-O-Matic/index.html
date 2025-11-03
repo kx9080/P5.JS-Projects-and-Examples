@@ -5,15 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Sketch</title>
-
-    <link rel="stylesheet" type="text/css" href="style.css" />
-
+    <link rel="stylesheet" type="text/css" href="meyerwebcssreset.css" />
+    <link rel="stylesheet" type="text/css" href="projects.css" />
+    <script src="sketch.js"></script>
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
     <script src="libraries/p5.fillGradient.js"></script>
+    <link rel="stylesheet" href="Coloris/coloris.css" />
+    <script src="Coloris/coloris.js"></script>
   </head>
 
-  <body>
-    <script src="sketch.js"></script>
+  <body class="gradient">
+    <main>
+      <div class="stubborn-width home">
+        <h1 class="centertext stubborn-width">Draw-O-Matic</h1>
+        <p class="borderedtext stubborn-width home centertext">
+          Click and drag to draw! <br />Use the color picker to change colors!
+          <br />Use the slider to change brush size! <br />Press 'c' to clear
+          the canvas! <br />
+          Press 's' to save your drawing! <br />
+          Have fun!
+        </p>
+      </div>
+      <div class="stubborn-width">
+        <button class="navbuttoncenter" id="circleButton">
+          Circular Brush
+        </button>
+        <button class="navbuttoncenter" id="squareButton">Square Brush</button>
+        <input class="navbuttoncenter" type="color" id="colorPicker" />
+        <p class="navcontexttext">Brush Size:</p>
+        <input
+          class="navbuttoncenter"
+          type="range"
+          id="sizeSlider"
+          min="5"
+          max="50"
+          value="20"
+        />
+        <p class="navcontexttext" id="sizeValue">20</p>
+      </div>
+      <div class="noborder noshadow footer">
+        <canvas id="defaultCanvas0" , width="800" , height="600"></canvas>
+      </div>
+    </main>
+    <!-- <script src="sketch.js"></script> -->
+    <footer>
+      <div class="'footer">
+        <p>Created by Caden H.</p>
+      </div>
+    </footer>
   </body>
 </html>
