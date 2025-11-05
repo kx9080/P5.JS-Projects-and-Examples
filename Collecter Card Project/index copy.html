@@ -10,6 +10,9 @@
     <script src="sketch.js"></script>
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
+    <script src="libraries/p5.fillGradient.js"></script>
+    <link rel="stylesheet" href="Coloris/coloris.css" />
+    <script src="Coloris/coloris.js"></script>
   </head>
 
   <body class="gradient">
@@ -30,8 +33,6 @@
         </button>
         <button class="navbuttoncenter" id="squareButton">Square Brush</button>
         <input class="navbuttoncenter" type="color" id="colorPicker" />
-      </div>
-      <div class="stubborn-width">
         <p class="navcontexttext">Brush Size:</p>
         <input
           class="navbuttoncenter"
@@ -42,24 +43,14 @@
           value="20"
         />
         <p class="navcontexttext" id="sizeValue">20</p>
-        <p class="navcontexttext">Opacity:</p>
-        <input
-          class="navbuttoncenter"
-          type="range"
-          id="opacitySlider"
-          min="0"
-          max="100"
-          value="100"
-        />
-        <p class="navcontexttext" id="opacityValue">100</p>
       </div>
       <div class="noborder noshadow footer">
-        <canvas id="defaultCanvas0" , width="800" , height="600"></canvas>
+        <canvas id="defaultCanvas0" , width="800" , height="900"></canvas>
       </div>
     </main>
     <!-- <script src="sketch.js"></script> -->
     <footer>
-      <div class="footer">
+      <div class="'footer">
         <p>Created by Caden H.</p>
       </div>
     </footer>
