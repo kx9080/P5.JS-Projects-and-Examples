@@ -8,23 +8,40 @@ let circleButtonClicked = false;
 let rectButtonClicked = true;
 let size;
 let currentColor;
-let opacity;
+let brushSize;
+let circbtn;
+let rectbtn;
+let eraser = false;
 
 function setup() {
-  const circbtn = document.getElementById("circleButton");
-  const rectbtn = document.getElementById("squareButton");
-  const size = document.getElementById("sizeSlider");
+  circbtn = document.getElementById("circleButton");
+  rectbtn = document.getElementById("squareButton");
+  size = document.getElementById("sizeSlider");
   const sizeValue = document.getElementById("sizeValue");
   const opacitySlider = document.getElementById("opacitySlider");
   const opacityValue = document.getElementById("opacityValue");
+  const clearbtn = document.getElementById("clearButton");
+  const savebtn = document.getElementById("saveButton");
+  clearbtn.addEventListener("click", function () {
+    clear();
+    background(255);
+  });
+  rectbtn.style.backgroundColor = "#fff";
+  circbtn.style.backgroundColor = "#888";
+  const eraserbtn = document.getElementById("eraserButton");
+  savebtn.addEventListener("click", function () {
+    saveCanvas("myDrawing", "png");
+  });
   opacitySlider.addEventListener("input", function () {
     opacityValue.textContent = opacitySlider.value;
   });
   opacityValue.textContent = opacitySlider.value;
   size.addEventListener("input", function () {
-    sizeValue.textContent = size.value;
+    brushSize = parseInt(size.value);
+    sizeValue.textContent = brushSize;
   });
-  sizeValue.textContent = size.value;
+  brushSize = parseInt(size.value);
+  sizeValue.textContent = brushSize;
   colorPicker = document.getElementById("colorPicker");
   circbtn.addEventListener("click", makeitacircle);
   rectbtn.addEventListener("click", makeitarect);
@@ -51,12 +68,16 @@ function makeitacircle() {
   console.log("circle button clicked");
   circleButtonClicked = true;
   rectButtonClicked = false;
+  circbtn.style.backgroundColor = "#fff";
+  rectbtn.style.backgroundColor = "#888";
 }
 
 function makeitarect() {
   console.log("rectangle button clicked");
   rectButtonClicked = true;
   circleButtonClicked = false;
+  rectbtn.style.backgroundColor = "#fff";
+  circbtn.style.backgroundColor = "#888";
 }
 
 //Had to use this function to convert hex to rgba for opacity control
@@ -79,10 +100,13 @@ function hexToRgbA(hex) {
 function mouseDragged() {
   console.log(colorPicker.value);
   const col = colorPicker.value;
-  const brushSize = parseInt(sizeSlider.value);
   const opacity = opacitySlider.value;
   print(col);
-  fill(hexToRgbA(col).replace("1)", opacity / 100 + ")"));
+  if (eraser === true) {
+    fill(255);
+  } else {
+    fill(hexToRgbA(col).replace("1)", opacity / 100 + ")"));
+  }
   if (rectButtonClicked === true) {
     rect(mouseX, mouseY, brushSize, brushSize);
   }
@@ -98,5 +122,22 @@ function keyPressed() {
   }
   if (key === "s" || key === "S") {
     saveCanvas("myDrawing", "png");
+  }
+  if (key === "w" || key === "W") {
+    if (brushSize < 50) {
+      brushSize += 1;
+      sizeValue.textContent = brushSize;
+      size.value = brushSize;
+    }
+  }
+  if (key === "e" || key === "E") {
+    if (brushSize > 1) {
+      brushSize -= 1;
+      sizeValue.textContent = brushSize;
+      size.value = brushSize;
+    }
+  }
+  if (key === "q" || key === "Q") {
+    eraser = !eraser;
   }
 }

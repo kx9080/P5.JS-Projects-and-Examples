@@ -5,6 +5,11 @@ h1 {
   display: inline;
   color: #e0e1dd;
 }
+.momo-signature-regular {
+  font-family: "Momo Signature", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 nav div {
   display: flex;
   align-items: center;
