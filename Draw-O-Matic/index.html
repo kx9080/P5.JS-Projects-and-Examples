@@ -10,16 +10,22 @@
     <script src="sketch.js"></script>
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/e5b8d90aaf.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body class="gradient">
     <main>
       <div class="stubborn-width home">
-        <h1 class="centertext stubborn-width">Draw-O-Matic</h1>
+        <h1 class="centertext stubborn-width momo-signature-regular">
+          Draw-O-Matic
+        </h1>
         <p class="borderedtext stubborn-width home centertext">
           Click and drag to draw! <br />Use the color picker to change colors!
-          <br />Use the slider to change brush size! <br />Press 'c' to clear
-          the canvas! <br />
+          <br />Use the slider to change brush size, or use 'w' to increase and
+          'e' to decrease! <br />Press 'c' to clear the canvas! <br />
           Press 's' to save your drawing! <br />
           Have fun!
         </p>
@@ -30,6 +36,18 @@
         </button>
         <button class="navbuttoncenter" id="squareButton">Square Brush</button>
         <input class="navbuttoncenter" type="color" id="colorPicker" />
+        <input
+          class="navbuttoncenter"
+          type="button"
+          id="clearButton"
+          value="Clear Canvas"
+        />
+        <input
+          class="navbuttoncenter"
+          type="button"
+          id="saveButton"
+          value="Save Drawing"
+        />
       </div>
       <div class="stubborn-width">
         <p class="navcontexttext">Brush Size:</p>
