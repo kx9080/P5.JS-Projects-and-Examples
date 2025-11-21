@@ -18,7 +18,7 @@ nav div {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #001219;
+  background-color: var(--ctp-mocha-crust);
   column-gap: 0.00001%;
 }
 nav div * {
@@ -37,14 +37,14 @@ a {
   font-weight: 400;
   font-family: "Ubuntu", sans-serif;
   font-size: 0.8rem;
-  background-color: #1d263b;
+  background-color: var(--ctp-mocha-surface0);
   padding-left: 0.8rem;
   padding-right: 0.8rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin: 1px;
   text-decoration: none;
-  color: #e0e1dd;
+  color: var(--ctp-mocha-subtle);
 }
 img {
   border-radius: 5%;
@@ -144,7 +144,7 @@ i {
 /* Background Options */
 
 .gradient {
-  background-color: #1d263b;
+  background-color: var(--ctp-mocha-base);
 }
 
 /* Background Options End */
@@ -216,6 +216,7 @@ i {
 }
 
 .navbar {
+  background-color: var(--ctp-mocha-crust);
   max-width: 100%;
 }
 
