@@ -1,0 +1,40 @@
+{
+  "questions": [
+    "What is your favorite color?",
+    "Choose a pet:",
+    "Pick a superpower:",
+    "What is the best programming language?",
+    "Who is the best Vocaloid?",
+    "Best wood in Minecraft?",
+    "Do you pull a switch to divert a trolley and kill 1 person but save 5? (Trolley Problem)",
+    "What is the meaning of life?",
+    "What is 9 + 10?",
+    "What is the airspeed velocity of an unladen swallow?",
+    "What is the best meme song?"
+  ],
+  "answers": [
+    ["Red", "Blue", "Green", "Black"],
+    ["Dog", "Cat", "Bird", "Fish"],
+    ["Invisibility", "Flight", "Super Strength", "Telepathy"],
+    ["JavaScript", "Python", "C++", "C#"],
+    ["Hatsune Miku", "Kagamine Rin", "Megurine Luka", "Kasane Teto"],
+    ["Oak", "Birch", "Spruce", "Cherry"],
+    ["Yes", "No", "Drift the Trolley", "Try to derail the trolley"],
+    ["42", "Happiness", "Love", "Success"],
+    ["19", "20", "21", "910"],
+    ["African or European?", "24 mph", "11 m/s", "I don't know that!"],
+    ["Never Gonna Give You Up", "Thick of it", "Sandstorm", "Coffin Dance"]
+  ],
+  "orderOfCoolness": [
+    [2, 3, 1, 0],
+    [3, 2, 0, 1],
+    [0, 2, 1, 3],
+    [0, 2, 1, 3],
+    [3, 0, 1, 2],
+    [1, -10, 2, 3],
+    [3, 1, 0, 2],
+    [1, 2, 3, 0],
+    [2, 0, 3, 0],
+    [0, 2, 3, 1]
+  ]
+}

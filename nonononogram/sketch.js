@@ -9,7 +9,18 @@ function setup() {
 }
 
 function reloadCanvas() {
-  translate(300, 100);
+  background(220);
+  translate(300, 200);
+
+  strokeWeight(4);
+  square(62.5, 62.5, 325);
+
+  for (let i = -25; i <= 225; i += 50) {
+    strokeWeight(3);
+    line(i, -100, i, 225);
+    line(-100, i, 225, i);
+  }
+
   for (let i = 0; i < 5; i++) {
     for (let j = 0; j < 5; j++) {
       strokeWeight(1);
@@ -31,6 +42,10 @@ function reloadCanvas() {
       }
     }
   }
+
+  strokeWeight(4);
+  line(-75, -25, 225, -25);
+  line(-25, -75, -25, 225);
 }
 
 function draw() {}
@@ -45,6 +60,8 @@ function keyPressed() {
 }
 
 function mousePressed() {
+  print(mouseX + " " + mouseY);
+
   // Left click - change color to black/white
   if (mouseButton === LEFT) {
     for (let j = 0; j < 5; j++) {
