@@ -20,7 +20,7 @@ function setup() {
   let canvas = createCanvas(1000, 800, defaultCanvas0);
   for (i = 0; i < data.orderOfCoolness.length; i++) {
     imageData = imageData || [];
-    imageData[i] = loadImage(`images/q${i + 1}image.jpg`);
+    imageData[i] = loadImage(`images/q${i + 1}image.webp`);
     print(`Loaded image ${i + 1}`);
   }
   //Prompt for user's name
