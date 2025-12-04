@@ -149,8 +149,9 @@ function showQuestion() {
 }
 
 function mousePressed() {
+  print("X" + mouseX + " Y" + mouseY);
   //Left 2 Boxes
-  if (mouseX > 100 && mouseX < 400) {
+  if (mouseX > 200 && mouseX < 500) {
     if (mouseY < 300 && mouseY > 225) {
       //Button A
       score += data.orderOfCoolness[number][0] * 2;
@@ -165,7 +166,7 @@ function mousePressed() {
     }
   }
   //Right 2 Boxes
-  if (mouseX > 400 && mouseX < 700) {
+  if (mouseX > 500 && mouseX < 800) {
     if (mouseY < 300 && mouseY > 225) {
       //Button B
       score += data.orderOfCoolness[number][1] * 2;
