@@ -213,5 +213,7 @@ function keyPressed() {
     }
   } else if (keyCode === ENTER) {
     number = data.questions.length;
+  } else if (key === "s") {
+    saveCanvas("myDrawing", "png");
   }
 }

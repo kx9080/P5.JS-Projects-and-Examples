@@ -99,5 +99,7 @@ function keyPressed() {
     } else {
       speed += 6;
     }
+  } else if (key === "s") {
+    saveCanvas("myDrawing", "png");AQ0
   }
 }

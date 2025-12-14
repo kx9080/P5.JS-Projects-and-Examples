@@ -21,7 +21,6 @@ function setup() {
 
 function draw() {
   //Card Setup
-  background(128, 128, 128);
   stroke("#0a1172");
   strokeWeight(10);
   if (flipped === false) {

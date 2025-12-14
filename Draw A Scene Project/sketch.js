@@ -13,7 +13,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(800, 800);
+  let canvas = createCanvas(800, 800, defaultCanvas0);
   mouseCords = "test";
   closeTopWindow = 200;
   ms = millis();
@@ -164,7 +164,7 @@ function keyPressed() {
   if (key === "n" && progressBarWidth >= 198) {
     youWereSupposedToStopThemNotJoinThem = true;
   }
-  if (key === "s") {
+  if (key === "s" || key === "S") {
     progressBarWidth = 198;
   }
   if (key === "u") {
