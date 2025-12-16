@@ -4,6 +4,8 @@ let nameFont = "Ubuntu Mono Sans";
 let standardFont = "Arial";
 let number;
 let questionData = null;
+let charImageData = null;
+let questionImageData = null;
 
 function preload() {
   data = loadJSON("067f0-unjmy.json");
@@ -19,7 +21,18 @@ function setup() {
       "This is the loop num:" + i + " this is val stored " + questionData[i]
     );
   }
+  for (i = 0; i < data.Characters.length; i++) {
+    charImageData = charImageData || [];
+    charImageData[i] = loadImage(`images/char/i${i + 1}.webp`);
+    print(`Loaded char image ${i + 1}`);
+  }
+  for (i = 0; i < data.Questions.length; i++) {
+    questionImageData = questionImageData || [];
+    questionImageData[i] = loadImage(`images/ques/q${i + 1}.webp`);
+    print(`Loaded ques image ${i + 1}`);
+  }
   print(data);
+  imageMode(CENTER);
 }
 
 function draw() {
@@ -48,13 +61,16 @@ function showQuestion() {
 
   //Boxes for Questions
   fill(49, 50, 68);
-  rect(width / 2 - 300, 230, 300, 75);
-  rect(width / 2, 230, 300, 75);
+  rect(width / 2 - 300, 280, 300, 75);
+  rect(width / 2, 280, 300, 75);
 
   //Answers for questions
   fill(205, 214, 244);
-  text(`Yep`, width / 2 - 150, 275);
-  text(`Nope`, width / 2 + 150, 275);
+  text(`Yep`, width / 2 - 150, 325);
+  text(`Nope`, width / 2 + 150, 325);
+
+  print(width);
+  image(questionImageData[number], width / 2, 550);
 }
 
 function checkCharacter() {
@@ -80,12 +96,22 @@ function checkCharacter() {
       noLoop();
       background(30, 30, 46);
       text(data.Characters[i].Characters, width / 2, height / 2);
+      print(width);
+      image(charImageData[i], width / 2, height / 2 + 200);
+      break;
+    } else if (i === data.Characters.length) {
+      noLoop();
+      background(30, 30, 46);
+      text("No Character", width / 2, height / 2);
+      print(width);
+      image(charImageData[30], width / 2, height / 2 + 200);
+      break;
     }
   }
 }
 function mousePressed() {
   if (mouseX > 200 && mouseX < 500) {
-    if (mouseY < 300 && mouseY > 225) {
+    if (mouseY < 350 && mouseY > 275) {
       //Button A
       print("yay");
       questionData[number] = 1;
@@ -93,11 +119,29 @@ function mousePressed() {
     }
   }
   if (mouseX > 500 && mouseX < 800) {
-    if (mouseY < 300 && mouseY > 225) {
+    if (mouseY < 350 && mouseY > 275) {
       //Button B
       print("Nay");
       questionData[number] = 0;
       number++;
     }
+  }
+}
+function keyPressed() {
+  if (key === "y" || key === "Y" || key === "1") {
+    print("yay");
+    questionData[number] = 1;
+    number++;
+  } else if (key === "n" || key === "N" || key === "0") {
+    print("nay");
+    questionData[number] = 0;
+    number++;
+  } else if (key === "r" || key === "R") {
+    number = 0;
+    for (var i = 0; i < questionImageData; i++) {
+      questionImageData[i] = 0;
+    }
+    print("reset");
+    loop();
   }
 }
