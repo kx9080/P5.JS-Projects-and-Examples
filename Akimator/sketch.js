@@ -12,8 +12,7 @@ function preload() {
   number = 0;
 }
 
-function setup() {
-  let canvas = createCanvas(1000, 800, defaultCanvas0);
+function loadStuff() {
   for (let i = 0; i < data.Questions.length; i++) {
     questionData = questionData || [];
     questionData[i] = 0;
@@ -31,6 +30,11 @@ function setup() {
     questionImageData[i] = loadImage(`images/ques/q${i + 1}.webp`);
     print(`Loaded ques image ${i + 1}`);
   }
+}
+
+function setup() {
+  let canvas = createCanvas(1000, 800, defaultCanvas0);
+  loadStuff();
   print(data);
   imageMode(CENTER);
 }
@@ -45,7 +49,7 @@ function draw() {
   textStyle(BOLD);
   textAlign(CENTER);
   text("Akimator", width / 2, 70);
-  if (number < questionData.length) {
+  if (number < data.Questions.length) {
     showQuestion();
   } else {
     checkCharacter();
@@ -70,6 +74,7 @@ function showQuestion() {
   text(`Nope`, width / 2 + 150, 325);
 
   print(width);
+  print(questionImageData[number]);
   image(questionImageData[number], width / 2, 550);
 }
 
@@ -93,19 +98,19 @@ function checkCharacter() {
       data.Characters[i].genius === questionData[13] &&
       data.Characters[i].dischar === questionData[14]
     ) {
-      noLoop();
       background(30, 30, 46);
       text(data.Characters[i].Characters, width / 2, height / 2);
       print(width);
+      print(charImageData[i]);
       image(charImageData[i], width / 2, height / 2 + 200);
-      break;
-    } else if (i === data.Characters.length) {
       noLoop();
+    } else if (i === data.Characters.length) {
       background(30, 30, 46);
       text("No Character", width / 2, height / 2);
       print(width);
+      print(charImageData[i]);
       image(charImageData[30], width / 2, height / 2 + 200);
-      break;
+      noLoop();
     }
   }
 }
@@ -115,7 +120,9 @@ function mousePressed() {
       //Button A
       print("yay");
       questionData[number] = 1;
-      number++;
+      if (number < data.Characters.length - 1) {
+        number++;
+      }
     }
   }
   if (mouseX > 500 && mouseX < 800) {
@@ -123,7 +130,9 @@ function mousePressed() {
       //Button B
       print("Nay");
       questionData[number] = 0;
-      number++;
+      if (number < data.Characters.length - 1) {
+        number++;
+      }
     }
   }
 }
@@ -131,16 +140,21 @@ function keyPressed() {
   if (key === "y" || key === "Y" || key === "1") {
     print("yay");
     questionData[number] = 1;
-    number++;
+    if (number < data.Characters.length - 1) {
+      number++;
+    }
   } else if (key === "n" || key === "N" || key === "0") {
     print("nay");
     questionData[number] = 0;
-    number++;
+    if (number < data.Characters.length - 1) {
+      number++;
+    }
   } else if (key === "r" || key === "R") {
     number = 0;
-    for (var i = 0; i < questionImageData; i++) {
-      questionImageData[i] = 0;
+    for (var i = 0; i < data.Questions.length; i++) {
+      questionData[i] = 0;
     }
+    loadStuff();
     print("reset");
     loop();
   }
