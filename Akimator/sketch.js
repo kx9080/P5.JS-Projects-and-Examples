@@ -6,6 +6,7 @@ let number;
 let questionData = null;
 let charImageData = null;
 let questionImageData = null;
+let titleScreen = true;
 
 function preload() {
   data = loadJSON("067f0-unjmy.json");
@@ -41,6 +42,27 @@ function setup() {
 
 function draw() {
   background(30, 30, 46);
+
+  while (titleScreen) {
+    fill(205, 214, 244);
+    textFont(standardFont);
+    textSize(32);
+    textAlign(CENTER);
+    text("Welcome to Akimator!", width / 2, height / 2 - 100);
+    textSize(20);
+    text(
+      "Think of a character and I will try to guess it! (from the list of course ;))",
+      width / 2,
+      height / 2 - 50
+    );
+    text(
+      "List found here --> https://tinyurl.com/akimatorList",
+      width / 2,
+      height / 2 - 20
+    );
+    text("Press any key to begin", width / 2, height / 2 + 50);
+    return;
+  }
 
   //Title
   fill(205, 214, 244);
@@ -115,47 +137,56 @@ function checkCharacter() {
   }
 }
 function mousePressed() {
-  if (mouseX > 200 && mouseX < 500) {
-    if (mouseY < 350 && mouseY > 275) {
-      //Button A
+  if (titleScreen === false) {
+    if (mouseX > 200 && mouseX < 500) {
+      if (mouseY < 350 && mouseY > 275) {
+        //Button A
+        print("yay");
+        questionData[number] = 1;
+        if (number < data.Characters.length - 1) {
+          number++;
+        }
+      }
+    }
+    if (mouseX > 500 && mouseX < 800) {
+      if (mouseY < 350 && mouseY > 275) {
+        //Button B
+        print("Nay");
+        questionData[number] = 0;
+        if (number < data.Characters.length - 1) {
+          number++;
+        }
+      }
+    }
+  } else if (titleScreen === true) {
+    titleScreen = false;
+  }
+}
+function keyPressed() {
+  if (titleScreen === false) {
+    if (key === "y" || key === "Y" || key === "1") {
       print("yay");
       questionData[number] = 1;
       if (number < data.Characters.length - 1) {
         number++;
       }
-    }
-  }
-  if (mouseX > 500 && mouseX < 800) {
-    if (mouseY < 350 && mouseY > 275) {
-      //Button B
-      print("Nay");
+    } else if (key === "n" || key === "N" || key === "0") {
+      print("nay");
       questionData[number] = 0;
       if (number < data.Characters.length - 1) {
         number++;
       }
+    } else if (key === "r" || key === "R") {
+      number = 0;
+      for (var i = 0; i < data.Questions.length; i++) {
+        questionData[i] = 0;
+      }
+      loadStuff();
+      print("reset");
+      loop();
     }
   }
-}
-function keyPressed() {
-  if (key === "y" || key === "Y" || key === "1") {
-    print("yay");
-    questionData[number] = 1;
-    if (number < data.Characters.length - 1) {
-      number++;
-    }
-  } else if (key === "n" || key === "N" || key === "0") {
-    print("nay");
-    questionData[number] = 0;
-    if (number < data.Characters.length - 1) {
-      number++;
-    }
-  } else if (key === "r" || key === "R") {
-    number = 0;
-    for (var i = 0; i < data.Questions.length; i++) {
-      questionData[i] = 0;
-    }
-    loadStuff();
-    print("reset");
-    loop();
+  if (key) {
+    titleScreen = false;
   }
 }
