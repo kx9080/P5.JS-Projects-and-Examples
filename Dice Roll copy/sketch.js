@@ -1,7 +1,6 @@
 let one, two, three, four, five, six, rolling;
 let playerRoll = 0;
 let casinoRoll = 0;
-let password;
 
 function preload() {
   one = loadImage("images/1.jpg");
@@ -14,29 +13,35 @@ function preload() {
 } //end preloading of images
 
 function setup() {
-  createCanvas(600, 400);
-  background(200, 15, 150);
+  createCanvas(800, 600, defaultCanvas0);
+  background(0);
   imageMode(CENTER);
 }
 
 function draw() {
-  if (playerRoll === 0) {
-    image(rolling, width / 2, height / 2, 200, 200);
-  }
-  textSize(32);
+  image(rolling, width / 2, height / 2 - 100, 300, 300);
+  fill(255);
+  textSize(48);
   textAlign(CENTER);
-  text("Gambler's Paradise", width / 2, 350);
-  textSize(10);
-  text("Press 'C' to roll Casino Dice", width / 2, 370);
-  text("Press 'P' to roll Player Dice", width / 2, 380);
-  text("Press 'W' to see who won", width / 2, 390);
+  textStyle(BOLD);
+  textFont("Ubuntu Mono Sans");
+  text("Gambler's Paradise", width / 2, 470);
+  textSize(15);
+  textFont("Arial");
+  textStyle(NORMAL);
+  text("Press 'C' to roll Casino Dice", width / 2, 510);
+  text("Press 'P' to roll Player Dice", width / 2, 530);
+  text("Press 'W' to see who won", width / 2, 550);
+  text("Press 'B' to roll both Dice", width / 2, 570);
+  text("Click to roll both Dice and compare all at once!", width / 2, 590);
   textSize(20);
-  text("Player Dice", 450, 90);
+  text("Player Dice", width - 100, 90);
   text("Casino Dice", 100, 90);
 } //end draw
 
 function mousePressed() {
-  rollADice();
+  rollBothDice();
+  compareRolls();
 } //end mousePressed
 
 function keyPressed() {
@@ -46,37 +51,48 @@ function keyPressed() {
     rollAPlayerDice();
   } else if (key === "w" || key === "W") {
     compareRolls();
+  } else if (key === "b" || key === "B") {
+    rollBothDice();
   }
 }
 
 function compareRolls() {
+  textFont("BBH Bogle");
   if (playerRoll > casinoRoll) {
     textSize(32);
     textAlign(CENTER);
-    text("Player Wins!", width / 2, 300);
+    text("Player Wins!", width / 2, 420);
   } else if (playerRoll < casinoRoll) {
     textSize(32);
     textAlign(CENTER);
-    text("Casino Wins!", width / 2, 300);
+    text("Casino Wins!", width / 2, 420);
   } else {
     textSize(32);
     textAlign(CENTER);
-    text("It's a Tie, you win 1 Million Dollars.", width / 2, 300);
+    text("It's a Tie, you win 1 Million Dollars.", width / 2, 420);
   }
 }
 
 function rollAPlayerDice() {
   playerRoll = Math.floor(Math.random() * 6) + 1;
-  background(200, 15, 150);
-  showCasinoRoll(playerRoll, 450);
+  background(0);
+  showCasinoRoll(playerRoll, width - 100);
   showCasinoRoll(casinoRoll, 100);
 }
 
 function rollACasinoDice() {
   casinoRoll = Math.floor(Math.random() * 6) + 1;
-  background(200, 15, 150);
+  background(0);
   showCasinoRoll(casinoRoll, 100);
-  showCasinoRoll(playerRoll, 450);
+  showCasinoRoll(playerRoll, width - 100);
+}
+
+function rollBothDice() {
+  playerRoll = Math.floor(Math.random() * 6) + 1;
+  casinoRoll = Math.floor(Math.random() * 6) + 1;
+  background(0);
+  showCasinoRoll(casinoRoll, 100);
+  showCasinoRoll(playerRoll, width - 100);
 }
 
 function showCasinoRoll(roller, dieX) {
@@ -93,8 +109,4 @@ function showCasinoRoll(roller, dieX) {
   } else if (roller === 6) {
     image(six, dieX, 150, 100, 100);
   }
-}
-
-function reLoop() {
-  loop();
 }
