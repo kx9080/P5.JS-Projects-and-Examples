@@ -99,14 +99,12 @@ function draw() {
       fill(255);
       text(casinoRoll, width - 100, 275);
     }
+    fill(0);
+    rect(width - 150, 240, 100, 100);
+    fill(255);
     text(casinoRoll, width - 100, 275);
   }
 } //end draw
-
-function mousePressed() {
-  rollBothDice();
-  compareRolls();
-} //end mousePressed
 
 function keyPressed() {
   if (key === "w" || key === "W") {
