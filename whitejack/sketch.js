@@ -56,7 +56,10 @@ function draw() {
   textFont("Arial");
   textStyle(NORMAL);
 
+  textFont("Bebas Neue");
+
   text("Total:", 50, 275);
+  text("Total:", 1000, 275);
 
   text("Press 'P' to draw first Player hand", width / 2, 530);
   text("Press 'O' to draw another Player card", width / 2, 570);
