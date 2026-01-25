@@ -43,6 +43,7 @@ function setup() {
   busted = false;
   stand = false;
   casinoNumberOfCards = 1;
+  fullscreen = false;
 }
 
 function draw() {
