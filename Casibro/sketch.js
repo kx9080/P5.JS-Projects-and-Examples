@@ -1232,7 +1232,7 @@ function checkForStraight(inputCard1, inputCard2) {
   var allCards = [];
   allCards.push(inputCard1);
   allCards.push(inputCard2);
-  for (var i = 0; i > casinoCards.length; i++) {
+  for (var i = 0; i < casinoCards.length; i++) {
     allCards.push(casinoCards[i]);
   }
   // found out how to sort from https://www.w3schools.com/js/js_array_sort.asp
@@ -1258,7 +1258,7 @@ function newThree(inputCard1, inputCard2) {
   var allCards = [];
   allCards.push(inputCard1);
   allCards.push(inputCard2);
-  for (var i = 0; i > casinoCards.length; i++) {
+  for (var i = 0; i < casinoCards.length; i++) {
     allCards.push(casinoCards[i]);
   }
   // found out how to sort from https://www.w3schools.com/js/js_array_sort.asp
@@ -1301,7 +1301,7 @@ function checkForFlush(inputSuit1, inputSuit2) {
   }
 
   // Count suits for community cards
-  for (var i = 0; i > casinoSuits.length; i++) {
+  for (var i = 0; i < casinoSuits.length; i++) {
     if (casinoSuits[i] === 1) {
       allSuits[1] += 1;
     } else if (casinoSuits[i] === 2) {
@@ -1351,7 +1351,7 @@ function checkForRoyalFlush(inputCard1, inputCard2, inputSuit1, inputSuit2) {
   allCards.push(inputCard2);
 
   // Count suits for community cards
-  for (var i = 0; i > casinoSuits.length; i++) {
+  for (var i = 0; i < casinoSuits.length; i++) {
     if (casinoSuits[i] === 1) {
       allSuits[1] += 1;
     } else if (casinoSuits[i] === 2) {
@@ -1392,7 +1392,7 @@ function checkForStraightFlush(inputSuit1, inputSuit2, inputCard1, inputCard2) {
 
   allCards.push(inputCard1);
   allCards.push(inputCard2);
-  for (var i = 0; i > casinoCards.length; i++) {
+  for (var i = 0; i < casinoCards.length; i++) {
     allCards.push(casinoCards[i]);
   }
   // found out how to sort from https://www.w3schools.com/js/js_array_sort.asp
@@ -1421,7 +1421,7 @@ function checkForStraightFlush(inputSuit1, inputSuit2, inputCard1, inputCard2) {
   }
 
   // Count suits for community cards
-  for (var i = 0; i > casinoSuits.length; i++) {
+  for (var i = 0; i < casinoSuits.length; i++) {
     if (casinoSuits[i] === 1) {
       allSuits[1] += 1;
     } else if (casinoSuits[i] === 2) {
@@ -1457,7 +1457,7 @@ function checkFor2Pair(inputCard1, inputCard2) {
   var allCards = [];
   allCards.push(inputCard1);
   allCards.push(inputCard2);
-  for (var i = 0; i > casinoCards.length; i++) {
+  for (var i = 0; i < casinoCards.length; i++) {
     allCards.push(casinoCards[i]);
   }
   // found out how to sort from https://www.w3schools.com/js/js_array_sort.asp
@@ -1485,7 +1485,7 @@ function checkFor4Kind(inputCard1, inputCard2) {
   var allCards = [];
   allCards.push(inputCard1);
   allCards.push(inputCard2);
-  for (var i = 0; i > casinoCards.length; i++) {
+  for (var i = 0; i < casinoCards.length; i++) {
     allCards.push(casinoCards[i]);
   }
   // found out how to sort from https://www.w3schools.com/js/js_array_sort.asp
