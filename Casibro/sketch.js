@@ -107,8 +107,8 @@ function setup() {
 
   if (document.cookie != 5000) {
     loadMoneyFromCookies();
-    return;
     loop();
+    return;
   } else {
     playerMoney = 5000;
     loop();
