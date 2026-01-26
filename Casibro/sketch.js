@@ -39,6 +39,7 @@ function setup() {
   imageMode(CENTER);
   strokeWeight(0);
 
+  // Hold Em'
   riverDrawn = false;
   turnDrawn = false;
   flopDrawn = false;
@@ -47,6 +48,7 @@ function setup() {
   checkEnd = false;
   pot = 0;
 
+  //Theming
   theme = "dark";
   const changeThemeBtn = document.getElementById("changeThemeBtn");
   changeThemeBtn.addEventListener("click", function () {
@@ -70,7 +72,6 @@ function setup() {
   busted = false;
   stand = false;
   playerHasToCall = false;
-
   playerWinningNumber = 0;
 
   //Casino variables
@@ -91,19 +92,17 @@ function setup() {
   casinoWinningNumber = 0;
 
   firstPair = 0;
-
-  // fullscreenStatus = false;
   start = true;
   game = "";
   blackjackStarted = false;
+  flashOpacity = 0;
+  flashOpacityImage = 0;
 
   // Catpuccin Mocha Base
   backgroundColor = color(30, 30, 46);
   // Catpuccin Mocha Text
   textColor = color(205, 214, 244);
 
-  flashOpacity = 0;
-  flashOpacityImage = 0;
 
   if (document.cookie != 5000) {
     loadMoneyFromCookies();
@@ -420,6 +419,7 @@ function keyPressed() {
     drawHoldEmCards();
     casinoDrawHoldEmCards();
   } else if (key === "c" || key === "C") {
+    // Does checking and card drawing
     while (playerHasToCall === true) {
       if (game === "texasHoldEm") {
         // Call computer bet
@@ -521,6 +521,7 @@ function keyPressed() {
       }
     }
   } else if (key === "q" || key === "Q") {
+    // Calls the bet
     if (game === "texasHoldEm") {
       if (playerHasToCall) {
         callBet();
@@ -530,6 +531,7 @@ function keyPressed() {
       }
     }
   } else if (key === "a" || key === "A") {
+    // Lets you bet
     if (game === "texasHoldEm") {
       while (playerHasToCall === true) {
         if (game === "texasHoldEm") {
@@ -567,8 +569,8 @@ function keyPressed() {
 }
 
 function mousePressed() {
+  // Handles clicking for the various buttons
   print("MouseX " + mouseX + " MouseY " + mouseY);
-
   if (start === true) {
     if (mouseY > 295 && mouseY < 345) {
       if (mouseX > 180 && mouseX < 230) {
@@ -599,7 +601,6 @@ function mousePressed() {
       }
     }
   }
-
   if (game === "blackjack") {
     if (mouseY > 450 && mouseY < 555) {
       if (mouseX > width - 300 && mouseX < width - 100) {
@@ -796,6 +797,7 @@ function mousePressed() {
 //Blackjack functions
 
 function bet() {
+  // Lets you bet
   betAmount = int(window.prompt("Enter your bet amount:"));
   if (isNaN(betAmount) || betAmount <= 0 || betAmount > playerMoney) {
     window.alert("Invalid bet amount. Please enter a positive number.");
@@ -807,6 +809,7 @@ function bet() {
 }
 
 function computerBet() {
+  // The computer is rich too
   betAmount = Math.floor(random(200, 1000));
   window.alert("The computer has bet " + betAmount + ".");
   pot += betAmount;
@@ -815,6 +818,7 @@ function computerBet() {
 }
 
 function computerCallBet() {
+  // Computer bet handling
   if (betAmount > 1000) {
     window.alert("The computer folds your bet of " + betAmount + ".");
     computerFold = true;
@@ -835,6 +839,7 @@ function computerCallBet() {
 }
 
 function callBet() {
+  // Calls computer bet
   if (playerMoney < betAmount) {
     window.alert("You don't have enough money.");
     return;
@@ -920,6 +925,7 @@ function rollACasinoCard(i) {
       casinoCardValue[i] = 11;
     }
   }
+  //Assign Suits, plus a backup text system
   if (casinoSuit[i] === 1) {
     text("Spade", 1200 - 100 * i, 150);
   } else if (casinoSuit[i] === 2) {
@@ -929,6 +935,7 @@ function rollACasinoCard(i) {
   } else if (casinoSuit[i] === 4) {
     text("Club", 1200 - 100 * i, 150);
   }
+  // Handle face cards
   if (casinoCard[i] > 1 && casinoCard[i] < 11) {
     text(casinoCard[i], 1200 - 100 * i, 200);
     casinoCardValue[i] = casinoCard[i];
@@ -944,6 +951,7 @@ function rollACasinoCard(i) {
   } else if (casinoCard[i] === 1) {
     text("Ace", 1200 - 100 * i, 200);
   }
+  // Images
   if (casinoSuit[i] === 1) {
     image(spadeCardImages[casinoCard[i]], width - 100 * i, 180, 80, 120);
   } else if (casinoSuit[i] === 2) {
@@ -1150,7 +1158,7 @@ function casinoDrawHoldEmCards() {
     textAlign(CENTER);
     imageMode(CENTER);
 
-    // Roll player card and suit
+    // Roll casino card and suit
     casinoCard[i] = Math.floor(Math.random() * 13) + 1;
     casinoSuit[i] = Math.floor(Math.random() * 4) + 1;
 
@@ -1170,6 +1178,7 @@ function casinoDrawHoldEmCards() {
 }
 
 function showCasinoCards() {
+  // Shows the cards at the end of the game for casino
   imageMode(CENTER);
   for (var i = 0; i < casinoCard.length; i++) {
     if (casinoSuit[i] === 1) {
@@ -1254,6 +1263,7 @@ function checkForStraight(inputCard1, inputCard2) {
   return false;
 }
 
+//Three of a kind
 function newThree(inputCard1, inputCard2) {
   var allCards = [];
   allCards.push(inputCard1);
