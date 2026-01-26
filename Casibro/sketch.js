@@ -103,7 +103,6 @@ function setup() {
   // Catpuccin Mocha Text
   textColor = color(205, 214, 244);
 
-
   if (document.cookie != 5000) {
     loadMoneyFromCookies();
     loop();
@@ -344,8 +343,10 @@ function draw() {
 function keyPressed() {
   if (key === "w" || key === "W") {
     // Stands in blackjack
-    if (game === "blackjack") {
+    if (blackjackStarted === true) {
       stand = true;
+    } else {
+      window.alert("You need to draw before standing.");
     }
   } else if (
     (key === "p" && stand === false && playerRoll === 0) ||
@@ -622,7 +623,11 @@ function mousePressed() {
             text(playerRoll, 150, 275);
           }
       } else if (mouseX > 100 && mouseX < 300) {
-        stand = true;
+        if (blackjackStarted === true) {
+          stand = true;
+        } else {
+          window.alert("You need to draw before standing.");
+        }
       }
     }
     if (mouseY > 250 && mouseY < 350) {
@@ -1219,7 +1224,6 @@ function showCasinoCards() {
 
 // Texas Hold'em functions for checking hands
 
-//Switched
 function checkForPair(inputCard1, inputCard2) {
   if (inputCard1 === inputCard2) {
     print("Pair!");
