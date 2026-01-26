@@ -242,7 +242,7 @@ function draw() {
     if (computerFold) {
       window.alert("Computer has folded. You win!");
       playerMoney += potAmount;
-      setup();
+      resetToHoldEm();
     }
   }
 
