@@ -140,6 +140,7 @@ function flashBang(unBang) {
 }
 
 function draw() {
+  // Display the starting screen
   while (start === true) {
     backgroundColor = color(30, 30, 46);
     textColor = color(205, 214, 244);
@@ -393,6 +394,7 @@ function keyPressed() {
       }
     }
   } else if (key === "m" || key === "M") {
+    // Reset the game fully
     setup();
   } else if (key === "b" || key === "B") {
     if (start === false) {
@@ -538,6 +540,7 @@ function keyPressed() {
       bet();
     }
   } else if (key === "h" || key === "H") {
+    // Fake function checks for testing
     fakeCheckForStraight();
     fakeCheckForFlush();
     fakeCheckForThree();
@@ -546,12 +549,16 @@ function keyPressed() {
     fakeCheckForStraightFlush();
     fakeCheckFor4Kind();
     fakeCheckFor2Pair();
+    fakeCheckForFullHouse();
   } else if (key === "r") {
     if (game === "blackjack") {
+      // Does what the function says
       resetToBlackjack();
     } else if (game === "texasHoldEm") {
+      // Does what the function says
       resetToHoldEm();
     } else {
+      // Reset Currency
       window.alert("Reseting your currency.");
       playerMoney = 5000;
       saveMoneyToCookies();
@@ -1517,7 +1524,7 @@ function checkForFullHouse(inputCard1, inputCard2) {
     if (allCards[j] === allCards[j + 1] && allCards[j] === allCards[j + 2]) {
       var usedPair = allCards[j];
       for (var i = 0; i <= allCards.length - 1; i++) {
-        if (usedPair != allCards[j] && allCards[i] === allCards[i + 1]) {
+        if (usedPair != allCards[i] && allCards[i] === allCards[i + 1]) {
           return true;
         }
       }
@@ -1527,6 +1534,32 @@ function checkForFullHouse(inputCard1, inputCard2) {
 }
 
 // Fake functions for testing
+
+function fakeCheckForFullHouse() {
+  var fakeAllCards = [2, 4, 2, 4, 4, 8, 6];
+  var fakeUsedPair;
+
+  fakeAllCards.sort(function (a, b) {
+    return a - b;
+  });
+
+  for (var j = 0; j < fakeAllCards.length - 2; j++) {
+    if (
+      fakeAllCards[j] === fakeAllCards[j + 1] &&
+      fakeAllCards[j] === fakeAllCards[j + 2]
+    ) {
+      var fakeUsedPair = fakeAllCards[j];
+      for (var i = 0; i <= fakeAllCards.length - 1; i++) {
+        if (
+          fakeUsedPair != fakeAllCards[i] &&
+          fakeAllCards[i] === fakeAllCards[i + 1]
+        ) {
+          print("Fake full house!");
+        }
+      }
+    }
+  }
+}
 
 function fakeCheckForRoyalFlush() {
   var fakeallSuits = [5, 0, 0, 0];
@@ -1710,6 +1743,7 @@ function fakeCheckForPair() {
 }
 
 function checkPlayerWinningNumber() {
+  // Do all the checks
   if (checkForPair(playerCard[0], playerCard[1])) {
     playerWinningNumber = 1;
     print("pair");
@@ -1751,6 +1785,7 @@ function checkPlayerWinningNumber() {
 }
 
 function checkCasinoWinningNumber() {
+  // Do all the checks
   if (checkForPair(casinoCard[0], casinoCard[1])) {
     casinoWinningNumber = 1;
     print("pair");
@@ -1808,10 +1843,12 @@ function checkCasinoWinningNumber() {
 //
 
 function saveMoneyToCookies() {
+  //Save to cookie
   document.cookie = playerMoney;
 }
 
 function loadMoneyFromCookies() {
+  //Load from cookie
   playerMoney = document.cookie;
 }
 
@@ -1851,6 +1888,7 @@ function changeTheme() {
 }
 
 function loadTheme() {
+  //Basic CSS manipulation
   if (theme === "dark") {
     console.log("dark");
     document.getElementById("main").style.backgroundColor = "rgb(30, 30, 46)";
