@@ -821,7 +821,7 @@ function computerCallBet() {
     betAmount = 0;
     return;
   }
-  if (betAmount < computerMoney && random(1) < 0.5) {
+  if (betAmount < computerMoney) {
     window.alert("The computer has called your bet of " + betAmount + ".");
     computerMoney -= betAmount;
     pot += betAmount;
@@ -1898,3 +1898,4 @@ function loadTheme() {
       "rgb(255, 255, 255)";
   }
 }
+``;
