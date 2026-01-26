@@ -1554,7 +1554,7 @@ function fakeCheckForFullHouse() {
           fakeUsedPair != fakeAllCards[i] &&
           fakeAllCards[i] === fakeAllCards[i + 1]
         ) {
-          print("Fake full house!");
+          print("Fake Full House!");
         }
       }
     }
@@ -1572,12 +1572,11 @@ function fakeCheckForRoyalFlush() {
       fakeAllCards[i + 3] != 13 &&
       fakeAllCards[i + 4] != 1
     ) {
-      print("No Royal Flush");
       return false;
     } else {
       for (var i = 0; i <= 4; i++) {
         if (fakeallSuits[i] >= 5) {
-          print("Royal Flush!");
+          print("Fake Royal Flush!");
           return true;
         }
       }
@@ -1587,7 +1586,6 @@ function fakeCheckForRoyalFlush() {
 }
 
 function fakeCheckForStraightFlush() {
-  print("fake straight flush");
   var fakeallSuits = [5, 0, 0, 0];
   var fakeallCards = [6, 4, 5, 3, 2];
 
@@ -1639,12 +1637,11 @@ function fakeCheckFor4Kind() {
 }
 
 function fakeCheckForFlush() {
-  print("fake flush");
   var fakeallSuits = [5, 0, 0, 0, 0];
   // Check for flush
   for (var j = 0; j <= 4; j++) {
     if (fakeallSuits[j] >= 5) {
-      print("fake Flush!");
+      print("Fake Flush!");
       return true;
     }
   }
@@ -1653,7 +1650,6 @@ function fakeCheckForFlush() {
 
 function fakeCheckForStraight() {
   // Still have to figure this out
-  print("fake straight");
   var fakeallCards = [2, 1, 6, 5, 4, 3];
   // found out how to sort from https://www.w3schools.com/js/js_array_sort.asp
   fakeallCards.sort(function (a, b) {
@@ -1667,12 +1663,10 @@ function fakeCheckForStraight() {
       fakeallCards[j] + 3 === fakeallCards[j + 3] &&
       fakeallCards[j] + 4 === fakeallCards[j + 4]
     ) {
-      print("Straight!");
       print("Fake Straight!");
       return true;
     }
   }
-  print("fake");
   return false;
 }
 
@@ -1688,7 +1682,7 @@ function fakeCheckForThree() {
       fakeAllCards[j] === fakeAllCards[j + 1] &&
       fakeAllCards[j] === fakeAllCards[j + 2]
     ) {
-      print("Three of a Kind!");
+      print("Fake Three of a Kind!");
       return true;
     }
   }
@@ -1711,7 +1705,7 @@ function fakeCheckFor2Pair() {
   }
 
   if (pairCount >= 2) {
-    print("Two Pair!");
+    print("Fake Two Pair!");
     return true;
   }
   return false;
@@ -1721,15 +1715,11 @@ function fakeCheckForPair() {
   var fakePlayerCard = [1, 2];
   var fakeCasinoCard = [2, 4, 5, 6, 7];
 
-  print("fake pair started");
-
   if (fakePlayerCard[0] === fakePlayerCard[1]) {
     print("Fake Pair!");
     return true;
   } else {
-    print("fake player cards");
     for (var i = 0; i < fakeCasinoCard.length; i++) {
-      print("fake pair loop");
       if (
         fakeCasinoCard[i] === fakePlayerCard[0] ||
         fakeCasinoCard[i] === fakePlayerCard[1]
