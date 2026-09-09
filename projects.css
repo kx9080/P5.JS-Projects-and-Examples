@@ -73,7 +73,7 @@ p {
   color: #e0e1dd;
 }
 main div img {
-  width: 50vw;
+  width: 40vw;
   text-align: center;
 }
 main {
@@ -220,15 +220,14 @@ i {
 }
 
 .navbutton1 {
-  max-width: 15%;
+  min-height: 10%;
   text-align: center;
   font-size: 0.7rem;
   margin-right: 2px;
-  border-top-left-radius: 13px;
-  border-bottom-left-radius: 13px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .navbuttoncenter {
-  max-width: 15%;
   text-align: center;
   font-size: 0.7rem;
   margin-left: 2px;
@@ -239,8 +238,8 @@ i {
   text-align: center;
   font-size: 0.7rem;
   margin-left: 2px;
-  border-top-right-radius: 13px;
-  border-bottom-right-radius: 13px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 /* Navbar Styling End */

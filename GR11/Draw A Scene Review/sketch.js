@@ -148,6 +148,10 @@ function draw() {
   drawClouds();
 }
 
+function mousePressed() {
+  saveCanvas();
+}
+
 function drawTheSun() {
   fill("rgb(255, 255, 0)");
   circle(300, 100, 50);

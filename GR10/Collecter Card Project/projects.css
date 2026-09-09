@@ -94,18 +94,6 @@ i {
   color: #ffffff;
 }
 
-input[data-coloris] {
-  all: unset; /* removes Coloris’ default input styling */
-  border: 2px solid #444;
-  border-radius: 6px;
-  padding: 6px 10px;
-  background: #222;
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
-  width: 5vw;
-}
-
 input[type="range"] {
   margin: auto;
   -webkit-appearance: none;
@@ -310,7 +298,6 @@ input[type="range"] {
 
 .navbutton1 {
   min-height: 10%;
-  min-width: 15%;
   text-align: center;
   font-size: 0.7rem;
   margin-right: 2px;
@@ -318,8 +305,6 @@ input[type="range"] {
   border-bottom-left-radius: 5px;
 }
 .navbuttoncenter {
-  width: 8vw;
-  min-height: 1.8vw;
   text-align: center;
   font-size: 0.7rem;
   margin-left: 2px;
