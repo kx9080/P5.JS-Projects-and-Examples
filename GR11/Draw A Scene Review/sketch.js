@@ -29,8 +29,10 @@ let backgroundColor = "rgb(121, 180, 247)";
 let speed = 1;
 let carColor = "rgb(255, 0, 0)";
 let carColorPossibilities = [
+  "rgb(255, 0, 0)",
   "rgb(199, 44, 44)",
   "rgb(48, 104, 48)",
+  "rgb(70, 70, 100)",
   "rgb(53, 53, 100)",
   "rgb(255, 255, 0)",
 ];
