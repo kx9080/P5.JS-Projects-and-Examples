@@ -148,9 +148,9 @@ function draw() {
   drawClouds();
 }
 
-function mousePressed() {
-  saveCanvas();
-}
+// function mousePressed() {
+//   saveCanvas();
+// }
 
 function drawTheSun() {
   fill("rgb(255, 255, 0)");
