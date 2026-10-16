@@ -1,0 +1,31 @@
+{
+  "SceneText": [
+    "A monster apocalypse has begun! You must survive by collecting items and coins\n to help you along the way. This was caused by The Great Fongster, who is\n incredibly powerful and cool.",
+    "There is a nice person that you meet. She reminds you of your grandmother,\n and she gives you gifts of gold and a map. She sends you off after you have\n a good chat.",
+    "You encounter a monter! You manage to survive, but you lose your sheild in the \n process. You are now defenseless.",
+    "You find yourself hungy, and you find an abandoned resturant. You find some food\n to keep, and you are able to continue on your journey.",
+    "You find some hungry kids who need supplies. But you are a super mean person,\n and you just say no.",
+    "You actually go back, and steal all the kids supplies, they had 2 waters, you feel no\n remorse.",
+    "You find a old school blacksmith, and he sells you a sword hearing of your journey\n to defeat The Great Fongster. You are now ready to face him, and you are\n confident in your abilities. You gain a sword, but lose 5 coins.",
+    "You take a nap, and when you awake, you see some footsteps and notice a water\n gone.",
+    "You find a beggar, who asks for one food, what do you do?",
+    "You have defeated The Great Fongster! You are now the new ruler of the world, \n and you feel powerful, but watch your back. As the ruler, you retire your weapons."
+  ],
+  "AddedItems": ["", "Map", "", "Food", "", "Water", "Magical Sword", "", ""],
+  "timesToAdd": [0, 1, 0, 2, 0, 2, 1, 0, 0, 0, 0],
+  "AddedCoins": [0, 5, 0, 0, 0, 0, -5, 0, 0, 0, 0],
+  "TradesAvailible": ["", "", "", "", "", "", "", "", "Food", ""],
+  "TradeRewards": ["", "", "", "", "", "", "", "", "", "", ""],
+  "RemovedItems": [
+    "",
+    "",
+    "Shield",
+    "",
+    "",
+    "",
+    "",
+    "Water",
+    "",
+    "Magical Sword"
+  ]
+}
