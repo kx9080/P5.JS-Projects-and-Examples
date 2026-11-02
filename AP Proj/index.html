@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Stack</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script src="js.js" defer></script> -->
+    <script>
+      const apiUrl = "http://localhost:3000/api/v1/products";
+      async function fetchData() {
+        try {
+          const data = response.json();
+          console.log(data);
+          const user = data.products[1];
+
+          console.log(user);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    </script>
+  </head>
+  <nav>
+    <div class="navbar">
+      <a href="index.html" class="">Home</a>
+      <a href="contact.html" class="">Contact</a>
+      <a href="projects.html" class="post">Post</a>
+    </div>
+  </nav>
+  <body>
+    <main class="home">
+      <h1>The Stack</h1>
+      <div>
+        <h2>Welcome to The Stack</h2>
+        <p>
+          The Stack is a social media platform where your feed is just a
+          shuffled deck of cards. Just click to get to the next post.
+        </p>
+      </div>
+      <div>
+        <h2 id="postTitle"></h2>
+        <p id="postContent"></p>
+        <image id="postImage" src="" alt="Post Image"> </image>
+      </div>
+    </main>
+  </body>
+</html>

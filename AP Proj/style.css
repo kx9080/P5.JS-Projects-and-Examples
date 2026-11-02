@@ -1,0 +1,56 @@
+nav div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #001219;
+  column-gap: 0.00001%;
+}
+nav div * {
+  margin: 10px;
+  color: whitesmoke;
+}
+nav div a {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.post {
+  justify-content: right;
+  align-items: right;
+}
+
+h2 {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  display: inline;
+  color: #ffffff;
+  padding-right: 1rem;
+}
+
+p {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  display: inline;
+  color: #ffffff;
+}
+
+main div {
+  margin: 15px;
+  background-color: #08111c;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 60vw;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  box-shadow: 10px 5px 5px #0e1c2d;
+}
+.home {
+  align-items: center;
+  row-gap: 25px;
+  display: flex;
+  flex-direction: column;
+}
