@@ -37,6 +37,15 @@ p {
   color: #ffffff;
 }
 
+a {
+  font-family: "Ubuntu", sans-serif;
+  text-decoration: underline;
+  font-size: 1rem;
+  font-weight: 500;
+  display: inline;
+  color: #ffffff;
+}
+
 main div {
   margin: 15px;
   background-color: #08111c;
